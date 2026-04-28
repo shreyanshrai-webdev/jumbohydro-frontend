@@ -18,13 +18,17 @@ export default function Register() {
   const { CURRENCIES } = useCurrency();
   const navigate = useNavigate();
 
-  const validatePassword = (password) => {
-    if (password.length < 8) return "Password must be at least 8 characters";
-    if (!/[A-Z]/.test(password))
+  const validateForm = (form) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(form.email))
+      return "Please enter a valid email address (e.g. name@domain.com)";
+    if (form.password.length < 8)
+      return "Password must be at least 8 characters";
+    if (!/[A-Z]/.test(form.password))
       return "Password must have at least one uppercase letter";
-    if (!/[a-z]/.test(password))
+    if (!/[a-z]/.test(form.password))
       return "Password must have at least one lowercase letter";
-    if (!/[@#$%^&*!]/.test(password))
+    if (!/[@#$%^&*!]/.test(form.password))
       return "Password must have at least one special character (@#$%^&*!)";
     return null;
   };
@@ -32,9 +36,9 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const passwordError = validatePassword(form.password);
-    if (passwordError) {
-      toast.error(passwordError);
+    const error = validateForm(form);
+    if (error) {
+      toast.error(error);
       return;
     }
 
@@ -146,7 +150,7 @@ export default function Register() {
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="you@example.com"
+                      placeholder="you@domain.com"
                       value={form.email}
                       onChange={(e) =>
                         setForm({ ...form, email: e.target.value })
@@ -158,6 +162,16 @@ export default function Register() {
                         fontSize: 14,
                       }}
                     />
+                    <small
+                      style={{
+                        color: "#6c757d",
+                        fontSize: 11,
+                        marginTop: 4,
+                        display: "block",
+                      }}
+                    >
+                      Enter a valid email e.g. name@domain.com
+                    </small>
                   </div>
                   <div className="col-md-6">
                     <label
