@@ -55,8 +55,12 @@ export default function ManageUsers() {
     );
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif" }} className="py-4">
-      <div className="container-fluid px-4">
+    <div
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="py-3 py-md-4"
+    >
+      <div className="container-fluid px-3 px-md-4">
+        {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2
             style={{
@@ -64,16 +68,221 @@ export default function ManageUsers() {
               fontWeight: 700,
               color: "#0a2342",
               margin: 0,
+              fontSize: "clamp(20px, 5vw, 28px)",
             }}
           >
             Manage Users
           </h2>
-          <span style={{ fontSize: 14, color: "#6c757d" }}>
-            {users.length} total users
+          <span style={{ fontSize: 13, color: "#6c757d" }}>
+            {users.length} users
           </span>
         </div>
 
+        {/* ── MOBILE: user cards ── */}
+        <div className="d-md-none">
+          {users.map((u) => (
+            <div
+              key={u._id}
+              className="mb-3"
+              style={{
+                background: "#fff",
+                borderRadius: 16,
+                border: "1px solid #e8e8e8",
+                overflow: "hidden",
+              }}
+            >
+              <div className="p-3">
+                {/* Top row — avatar + name + role badge */}
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  <div
+                    style={{
+                      width: 42,
+                      height: 42,
+                      borderRadius: "50%",
+                      background: "#e8f0f8",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 700,
+                      color: "#0a2342",
+                      fontSize: 16,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {u.name?.charAt(0).toUpperCase()}
+                  </div>
+                  <div className="flex-grow-1 min-width-0">
+                    <div
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#1a1a1a",
+                      }}
+                    >
+                      {u.name}
+                      {u._id === currentUser?.id && (
+                        <span
+                          style={{
+                            fontSize: 11,
+                            color: "#6c757d",
+                            marginLeft: 6,
+                          }}
+                        >
+                          (you)
+                        </span>
+                      )}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 12,
+                        color: "#6c757d",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {u.email}
+                    </div>
+                  </div>
+                  <span
+                    style={{
+                      background:
+                        u.role === "admin" ? "#0a234220" : "#19875420",
+                      color: u.role === "admin" ? "#0a2342" : "#198754",
+                      padding: "3px 10px",
+                      borderRadius: 20,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {u.role}
+                  </span>
+                </div>
+
+                {/* Info grid */}
+                <div className="row g-2 mb-3">
+                  <div className="col-6">
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "#6c757d",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        marginBottom: 2,
+                      }}
+                    >
+                      Phone
+                    </div>
+                    <div style={{ fontSize: 13, color: "#333" }}>
+                      {u.phone || "—"}
+                    </div>
+                  </div>
+                  <div className="col-6">
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "#6c757d",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        marginBottom: 2,
+                      }}
+                    >
+                      Currency
+                    </div>
+                    <span
+                      style={{
+                        background: "#f0f4f8",
+                        color: "#0a2342",
+                        padding: "2px 8px",
+                        borderRadius: 20,
+                        fontSize: 12,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {u.preferredCurrency || "INR"}
+                    </span>
+                  </div>
+                  <div className="col-6">
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "#6c757d",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        marginBottom: 2,
+                      }}
+                    >
+                      Joined
+                    </div>
+                    <div style={{ fontSize: 13, color: "#333" }}>
+                      {new Date(u.createdAt).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </div>
+                  </div>
+                  {formatAddress(u.address) && (
+                    <div className="col-12">
+                      <div
+                        style={{
+                          fontSize: 11,
+                          color: "#6c757d",
+                          fontWeight: 600,
+                          textTransform: "uppercase",
+                          marginBottom: 2,
+                        }}
+                      >
+                        Address
+                      </div>
+                      <div style={{ fontSize: 13, color: "#333" }}>
+                        {formatAddress(u.address)}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions */}
+                {u._id !== currentUser?.id && (
+                  <div className="d-flex gap-2">
+                    <button
+                      onClick={() => toggleRole(u._id, u.role)}
+                      className="btn btn-sm flex-grow-1"
+                      style={{
+                        background: "#e8f0f8",
+                        color: "#0a2342",
+                        borderRadius: 8,
+                        fontSize: 12,
+                      }}
+                    >
+                      <i
+                        className={`bi bi-${u.role === "admin" ? "person-dash" : "person-check"} me-1`}
+                      ></i>
+                      {u.role === "admin" ? "Remove Admin" : "Make Admin"}
+                    </button>
+                    <button
+                      onClick={() => deleteUser(u._id)}
+                      className="btn btn-sm"
+                      style={{
+                        background: "#fde8e8",
+                        color: "#dc3545",
+                        borderRadius: 8,
+                        padding: "6px 14px",
+                      }}
+                    >
+                      <i className="bi bi-trash"></i>
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── DESKTOP: table ── */}
         <div
+          className="d-none d-md-block"
           style={{
             background: "#fff",
             borderRadius: 20,
@@ -263,7 +472,7 @@ export default function ManageUsers() {
                       </td>
                     </tr>
 
-                    {/* Expanded Address Row */}
+                    {/* Expanded address row */}
                     {expandedUser === u._id && u.address && (
                       <tr
                         key={`${u._id}-address`}
@@ -274,81 +483,25 @@ export default function ManageUsers() {
                       >
                         <td colSpan={8} style={{ padding: "12px 24px" }}>
                           <div className="d-flex gap-4 flex-wrap">
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  color: "#6c757d",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                Street
-                              </span>
-                              <div style={{ fontSize: 13, color: "#333" }}>
-                                {u.address.street || "—"}
-                              </div>
-                            </div>
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  color: "#6c757d",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                City
-                              </span>
-                              <div style={{ fontSize: 13, color: "#333" }}>
-                                {u.address.city || "—"}
-                              </div>
-                            </div>
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  color: "#6c757d",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                State
-                              </span>
-                              <div style={{ fontSize: 13, color: "#333" }}>
-                                {u.address.state || "—"}
-                              </div>
-                            </div>
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  color: "#6c757d",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                PIN
-                              </span>
-                              <div style={{ fontSize: 13, color: "#333" }}>
-                                {u.address.pin || "—"}
-                              </div>
-                            </div>
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  color: "#6c757d",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                Country
-                              </span>
-                              <div style={{ fontSize: 13, color: "#333" }}>
-                                {u.address.country || "—"}
-                              </div>
-                            </div>
+                            {["street", "city", "state", "pin", "country"].map(
+                              (field) => (
+                                <div key={field}>
+                                  <span
+                                    style={{
+                                      fontSize: 11,
+                                      fontWeight: 700,
+                                      color: "#6c757d",
+                                      textTransform: "uppercase",
+                                    }}
+                                  >
+                                    {field}
+                                  </span>
+                                  <div style={{ fontSize: 13, color: "#333" }}>
+                                    {u.address[field] || "—"}
+                                  </div>
+                                </div>
+                              ),
+                            )}
                           </div>
                         </td>
                       </tr>
