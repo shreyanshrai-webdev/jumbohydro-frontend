@@ -131,8 +131,8 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Auth */}
-            {user ? (
+            {/* Admin dropdown — only visible when admin is logged in */}
+            {user && (
               <div className="dropdown">
                 <button
                   className="btn btn-sm dropdown-toggle d-flex align-items-center gap-2"
@@ -176,18 +176,6 @@ export default function Navbar() {
                   </li>
                 </ul>
               </div>
-            ) : (
-              <Link
-                to="/login"
-                className="btn btn-sm"
-                style={{
-                  background: "#0a2342",
-                  color: "#fff",
-                  borderRadius: 8,
-                }}
-              >
-                Login
-              </Link>
             )}
           </div>
         </div>

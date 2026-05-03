@@ -9,14 +9,14 @@ import { toast } from "react-toastify";
 export default function Checkout() {
   const { cartItems, clearCart } = useCart();
   const { currency, getCurrencySymbol } = useCurrency();
-  const { user } = useAuth();
+  const { guestId } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
-    name: user?.name || "",
+    name: "",
     phone: "",
-    email: user?.email || "",
+    email: "",
     street: "",
     landmark: "",
     city: "",
@@ -36,30 +36,19 @@ export default function Checkout() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Place order
-      const { data: orderData } = await API.post("/api/orders", {
-        shippingAddress: form,
-        currency,
-      });
+      // Place order — send guestId in header so backend can identify the guest
+      const { data: orderData } = await API.post(
+        "/api/orders",
+        { shippingAddress: form, currency },
+        { headers: { "x-guest-id": guestId } },
+      );
 
-      // Save address to user profile automatically
-      try {
-        await API.put("/api/auth/profile", {
-          address: {
-            street: form.street,
-            city: form.city,
-            state: form.state,
-            pin: form.pin,
-            country: form.country,
-          },
-        });
-      } catch (err) {
-        console.log("Address save failed:", err.message);
-      }
       // Create Cashfree payment
-      const { data: payData } = await API.post("/api/payment/create", {
-        orderId: orderData.order._id,
-      });
+      const { data: payData } = await API.post(
+        "/api/payment/create",
+        { orderId: orderData.order._id },
+        { headers: { "x-guest-id": guestId } },
+      );
 
       // Load Cashfree SDK and open checkout
       if (window.Cashfree) {

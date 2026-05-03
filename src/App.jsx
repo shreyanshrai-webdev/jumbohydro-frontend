@@ -8,14 +8,13 @@ import { CurrencyProvider } from "./context/CurrencyContext";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { ProtectedRoute, AdminRoute } from "./components/ProtectedRoute";
+import { AdminRoute } from "./components/ProtectedRoute";
 
 // Public pages
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -23,7 +22,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 
-// Protected pages
+// Public pages (previously protected)
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import MyOrders from "./pages/MyOrders";
@@ -85,6 +84,8 @@ export default function App() {
                   </PublicLayout>
                 }
               />
+
+              {/* Login kept for admin use only — no link shown in navbar */}
               <Route
                 path="/login"
                 element={
@@ -93,14 +94,7 @@ export default function App() {
                   </PublicLayout>
                 }
               />
-              <Route
-                path="/register"
-                element={
-                  <PublicLayout>
-                    <Register />
-                  </PublicLayout>
-                }
-              />
+
               <Route
                 path="/about"
                 element={
@@ -150,14 +144,12 @@ export default function App() {
                 }
               />
 
-              {/* Protected routes */}
+              {/* Cart, Checkout, Orders — now open to all users (no login required) */}
               <Route
                 path="/cart"
                 element={
                   <PublicLayout>
-                    <ProtectedRoute>
-                      <Cart />
-                    </ProtectedRoute>
+                    <Cart />
                   </PublicLayout>
                 }
               />
@@ -165,9 +157,7 @@ export default function App() {
                 path="/checkout"
                 element={
                   <PublicLayout>
-                    <ProtectedRoute>
-                      <Checkout />
-                    </ProtectedRoute>
+                    <Checkout />
                   </PublicLayout>
                 }
               />
@@ -175,9 +165,7 @@ export default function App() {
                 path="/my-orders"
                 element={
                   <PublicLayout>
-                    <ProtectedRoute>
-                      <MyOrders />
-                    </ProtectedRoute>
+                    <MyOrders />
                   </PublicLayout>
                 }
               />
@@ -185,14 +173,12 @@ export default function App() {
                 path="/order-tracking/:id"
                 element={
                   <PublicLayout>
-                    <ProtectedRoute>
-                      <OrderTracking />
-                    </ProtectedRoute>
+                    <OrderTracking />
                   </PublicLayout>
                 }
               />
 
-              {/* Admin routes */}
+              {/* Admin routes — unchanged, still protected */}
               <Route
                 path="/admin"
                 element={
