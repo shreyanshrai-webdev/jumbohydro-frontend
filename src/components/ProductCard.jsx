@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useCurrency } from "../context/CurrencyContext";
-import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { format } = useCurrency();
-  const { user } = useAuth();
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
-    if (!user) return toast.error("Please login to add to cart");
     try {
       await addToCart(product._id);
       toast.success("Added to cart!");
