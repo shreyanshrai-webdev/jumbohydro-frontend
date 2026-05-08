@@ -145,10 +145,10 @@ export default function Footer() {
                 <i className="bi bi-geo-alt me-2"></i>Mumbai, Maharashtra, India
               </div>
               <div>
-                <i className="bi bi-envelope me-2"></i>info@jumbohydro.in
+                <i className="bi bi-envelope me-2"></i>jumbohydro@gmail.com
               </div>
               <div>
-                <i className="bi bi-telephone me-2"></i>+91 99999 99999
+                <i className="bi bi-telephone me-2"></i>+91 9565885999
               </div>
               <div>
                 <i className="bi bi-globe me-2"></i>International shipping
