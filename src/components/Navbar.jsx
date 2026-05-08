@@ -49,7 +49,7 @@ export default function Navbar() {
                 color: "#0a2342",
               }}
             >
-              Jumbohydro
+              JUMBO HYDRO ENGINEERS
             </span>
             <span
               style={{

@@ -38,7 +38,7 @@ export default function Footer() {
                   color: "#fff",
                 }}
               >
-                Jumbohydro India
+                JUMBO HYDRO ENGINEERS
               </span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: "#a0b4c8" }}>
@@ -161,7 +161,7 @@ export default function Footer() {
         <hr style={{ borderColor: "#1e3a5f", margin: "32px 0 20px" }} />
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
           <p style={{ fontSize: 13, color: "#6b849a", margin: 0 }}>
-            © 2026 Jumbohydro India. All Rights Reserved.
+            © 2026 JUMBO HYDRO ENGINEERS. All Rights Reserved.
           </p>
           <div className="d-flex flex-wrap gap-3" style={{ fontSize: 13 }}>
             {[
