@@ -34,20 +34,20 @@ export default function TermsAndConditions() {
             }}
           >
             Please read these Terms and Conditions carefully before using the
-            Jumbohydro India website. By accessing or using our website, placing
-            an order, or creating an account, you agree to be bound by these
-            terms. If you disagree with any part of these terms, please do not
-            use our website.
+            jumbo hydro engineers website. By accessing or using our website,
+            placing an order, or creating an account, you agree to be bound by
+            these terms. If you disagree with any part of these terms, please do
+            not use our website.
           </p>
         </div>
 
         {[
           {
-            title: "1. About Jumbohydro India",
+            title: "1. About JUMBO HYDRO ENGINEERS",
             content: [
               {
                 sub: "Company Information",
-                text: "Jumbohydro India is a professional supplier of underwater equipment and industrial marine solutions, registered and operating in Mumbai, Maharashtra, India. We supply weight belts, underwater cutting equipment, and diving gear to professionals across India and internationally.",
+                text: "JUMBO HYDRO ENGINEERS is a professional supplier of underwater equipment and industrial marine solutions, registered and operating in Mumbai, Maharashtra, India. We supply weight belts, underwater cutting equipment, and diving gear to professionals across India and internationally.",
               },
             ],
           },
@@ -60,7 +60,7 @@ export default function TermsAndConditions() {
               },
               {
                 sub: "Professional Use",
-                text: "Our products — particularly underwater cutting equipment, exothermic torches, and cutting rods — are intended exclusively for use by trained and certified diving and marine professionals. By purchasing these products, you confirm that you are qualified and trained to use them safely. Jumbohydro India is not responsible for any misuse of professional equipment.",
+                text: "Our products — particularly underwater cutting equipment, exothermic torches, and cutting rods — are intended exclusively for use by trained and certified diving and marine professionals. By purchasing these products, you confirm that you are qualified and trained to use them safely. JUMBO HYDRO ENGINEERS is not responsible for any misuse of professional equipment.",
               },
             ],
           },
@@ -73,7 +73,7 @@ export default function TermsAndConditions() {
               },
               {
                 sub: "Pricing and Currency",
-                text: "All prices are displayed in your selected currency (INR, USD, EUR, or GBP). Prices are subject to change without notice. The price charged at the time of order confirmation is the final price. For international orders, additional customs duties and taxes may apply and are the responsibility of the buyer.",
+                text: "All prices are displayed in your selected currency (INR, USD, RUB, EUR, or GBP). Prices are subject to change without notice. The price charged at the time of order confirmation is the final price. For international orders, additional customs duties and taxes may apply and are the responsibility of the buyer.",
               },
               {
                 sub: "Stock Availability",
@@ -94,7 +94,7 @@ export default function TermsAndConditions() {
               },
               {
                 sub: "International Payments",
-                text: "For orders in USD, EUR, or GBP, currency conversion and international transaction fees may apply as per your bank or card issuer policies. Jumbohydro India is not responsible for such additional charges.",
+                text: "For orders in USD, EUR, or GBP, currency conversion and international transaction fees may apply as per your bank or card issuer policies. JUMBO HYDRO ENGINEERS is not responsible for such additional charges.",
               },
             ],
           },
@@ -116,7 +116,7 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "Our Content",
-                text: "All content on this website including text, graphics, logos, images, product descriptions, and software is the property of Jumbohydro India or its content suppliers and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.",
+                text: "All content on this website including text, graphics, logos, images, product descriptions, and software is the property of JUMBO HYDRO ENGINEERS or its content suppliers and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.",
               },
             ],
           },
@@ -125,11 +125,11 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "As-Is Basis",
-                text: 'Our website and products are provided on an "as-is" and "as-available" basis. Jumbohydro India makes no warranties, express or implied, regarding the website\'s uninterrupted or error-free operation, the accuracy of content, or the fitness of products for a particular purpose beyond what is explicitly stated in product descriptions.',
+                text: 'Our website and products are provided on an "as-is" and "as-available" basis. JUMBO HYDRO ENGINEERS makes no warranties, express or implied, regarding the website\'s uninterrupted or error-free operation, the accuracy of content, or the fitness of products for a particular purpose beyond what is explicitly stated in product descriptions.',
               },
               {
                 sub: "Professional Equipment",
-                text: "Underwater cutting equipment and exothermic torches are professional industrial tools. Jumbohydro India explicitly disclaims any liability for injury, death, property damage, or any other harm resulting from improper use, lack of training, or failure to follow safety guidelines.",
+                text: "Underwater cutting equipment and exothermic torches are professional industrial tools. JUMBO HYDRO ENGINEERS explicitly disclaims any liability for injury, death, property damage, or any other harm resulting from improper use, lack of training, or failure to follow safety guidelines.",
               },
             ],
           },
@@ -138,7 +138,7 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "Maximum Liability",
-                text: "To the fullest extent permitted by law, Jumbohydro India's total liability to you for any claims arising from the use of our website or products shall not exceed the amount you paid for the specific product giving rise to the claim. We are not liable for indirect, incidental, special, consequential, or punitive damages.",
+                text: "To the fullest extent permitted by law, JUMBO HYDRO ENGINEERS total liability to you for any claims arising from the use of our website or products shall not exceed the amount you paid for the specific product giving rise to the claim. We are not liable for indirect, incidental, special, consequential, or punitive damages.",
               },
             ],
           },
@@ -165,7 +165,7 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "Questions About These Terms",
-                text: "If you have any questions about these Terms and Conditions, please contact us at: Email: legal@jumbohydro.in | Phone: +91 99999 99999 | Address: Jumbohydro India, Mumbai, Maharashtra, India.",
+                text: "If you have any questions about these Terms and Conditions, please contact us at: Email: legal@jumbohydro.in | Phone: +91 99999 99999 | Address: JUMBO HYDRO ENGINEERS, Mumbai, Maharashtra, India.",
               },
             ],
           },

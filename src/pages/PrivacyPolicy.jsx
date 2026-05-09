@@ -33,11 +33,11 @@ export default function PrivacyPolicy() {
               lineHeight: 1.8,
             }}
           >
-            At <strong>Jumbohydro India</strong>, we are committed to protecting
-            your personal information and your right to privacy. This Privacy
-            Policy explains how we collect, use, disclose, and safeguard your
-            information when you visit our website and make purchases. Please
-            read it carefully.
+            At <strong>JUMBO HYDRO ENGINEERS</strong>, we are committed to
+            protecting your personal information and your right to privacy. This
+            Privacy Policy explains how we collect, use, disclose, and safeguard
+            your information when you visit our website and make purchases.
+            Please read it carefully.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "We Do Not Sell Your Data",
-                text: "Jumbohydro India does not sell, trade, or rent your personal information to third parties for their marketing purposes under any circumstances.",
+                text: "JUMBO HYDRO ENGINEERS does not sell, trade, or rent your personal information to third parties for their marketing purposes under any circumstances.",
               },
               {
                 sub: "Service Providers",
@@ -85,7 +85,7 @@ export default function PrivacyPolicy() {
               },
               {
                 sub: "Legal Requirements",
-                text: "We may disclose your information if required by law, court order, or government regulation, or to protect the rights, property, or safety of Jumbohydro India, our customers, or others.",
+                text: "We may disclose your information if required by law, court order, or government regulation, or to protect the rights, property, or safety of JUMBO HYDRO ENGINEERS, our customers, or others.",
               },
             ],
           },
@@ -107,7 +107,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "What Are Cookies",
-                text: "Cookies are small text files stored on your device when you visit our website. We use cookies to maintain your login session, remember your preferred currency (INR/USD/EUR/GBP), keep items in your cart, and analyze website traffic.",
+                text: "Cookies are small text files stored on your device when you visit our website. We use cookies to maintain your login session, remember your preferred currency (INR/USD/EUR/GBP/RUB), keep items in your cart, and analyze website traffic.",
               },
               {
                 sub: "Managing Cookies",
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "Access and Control",
-                text: "You have the right to: Access the personal information we hold about you, Correct inaccurate or incomplete information, Request deletion of your account and personal data, Opt out of marketing communications, and Export your data in a portable format. To exercise any of these rights, contact us at privacy@jumbohydro.in.",
+                text: "You have the right to: Access the personal information we hold about you, Correct inaccurate or incomplete information, Request deletion of your account and personal data, Opt out of marketing communications, and Export your data in a portable format. To exercise any of these rights, contact us at  jumbohydro@gmail.com.",
               },
             ],
           },
@@ -156,7 +156,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "Privacy Concerns",
-                text: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Email: privacy@jumbohydro.in | Phone: +91 99999 99999 | Address: Jumbohydro India, Mumbai, Maharashtra, India.",
+                text: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Email:  jumbohydro@gmail.com | Phone: +91  9565885999 | Address: Shop No. 6, Shreepad Accord CHSL, Hatkesh Block GCC Road, Mira Road Mira Bhayandar, Thane District , Maharashtra – 401107, Mumbai, Maharashtra, India.",
               },
             ],
           },

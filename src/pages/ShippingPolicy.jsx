@@ -33,10 +33,11 @@ export default function ShippingPolicy() {
               lineHeight: 1.8,
             }}
           >
-            At <strong>Jumbohydro India</strong>, we are committed to delivering
-            your professional marine and underwater equipment safely and on time
-            — whether you are in India or anywhere around the world. We ship to
-            50+ countries and support pricing in INR, USD, EUR, and GBP.
+            At <strong>JUMBO HYDRO ENGINEERS</strong>, we are committed to
+            delivering your professional marine and underwater equipment safely
+            and on time — whether you are in India or anywhere around the world.
+            We ship to 50+ countries and support pricing in INR, USD, EUR, and
+            GBP.
           </p>
         </div>
 
@@ -124,7 +125,7 @@ export default function ShippingPolicy() {
             content: [
               {
                 sub: "Countries We Ship To",
-                text: "We ship to 50+ countries worldwide with a focus on: USA and Canada, All European Union member countries, United Kingdom, Australia and New Zealand, Middle East (UAE, Saudi Arabia, Qatar, Kuwait), Southeast Asia, and other regions. If your country is not listed at checkout, please contact us at shipping@jumbohydro.in.",
+                text: "We ship to 50+ countries worldwide with a focus on: USA and Canada, All European Union member countries, United Kingdom, Australia and New Zealand, Middle East (UAE, Saudi Arabia, Qatar, Kuwait), Southeast Asia, and other regions. If your country is not listed at checkout, please contact us at  jumbohydro@gmail.com .",
               },
               {
                 sub: "International Delivery Timeline",
@@ -149,7 +150,7 @@ export default function ShippingPolicy() {
               },
               {
                 sub: "Import Regulations",
-                text: "It is the customer's responsibility to ensure that the products ordered are legally permitted to be imported in their country. Jumbohydro India is not liable for any shipments seized or refused by customs authorities. No refund will be issued for products confiscated by customs due to import restrictions in the destination country.",
+                text: "It is the customer's responsibility to ensure that the products ordered are legally permitted to be imported in their country. JUMBO HYDRO ENGINEERS is not liable for any shipments seized or refused by customs authorities. No refund will be issued for products confiscated by customs due to import restrictions in the destination country.",
               },
             ],
           },
@@ -180,11 +181,11 @@ export default function ShippingPolicy() {
             content: [
               {
                 sub: "Lost Packages",
-                text: "If your tracking shows delivered but you have not received your package, please: Wait 24 hours as packages are sometimes marked delivered before arrival, Check with neighbors or building management, Contact the shipping carrier with your tracking number, and Contact us at shipping@jumbohydro.in within 7 days of the expected delivery date. We will investigate and resolve the issue promptly.",
+                text: "If your tracking shows delivered but you have not received your package, please: Wait 24 hours as packages are sometimes marked delivered before arrival, Check with neighbors or building management, Contact the shipping carrier with your tracking number, and Contact us at  jumbohydro@gmail.com within 7 days of the expected delivery date. We will investigate and resolve the issue promptly.",
               },
               {
                 sub: "Damaged in Transit",
-                text: "If your product arrives damaged due to transit, please take photographs immediately and contact us within 48 hours at support@jumbohydro.in with your Order ID and photos. We will arrange a replacement or refund at no additional cost. Do not discard the original packaging as it may be required for the carrier's damage claim.",
+                text: "If your product arrives damaged due to transit, please take photographs immediately and contact us within 48 hours at  jumbohydro@gmail.com with your Order ID and photos. We will arrange a replacement or refund at no additional cost. Do not discard the original packaging as it may be required for the carrier's damage claim.",
               },
             ],
           },
@@ -193,7 +194,7 @@ export default function ShippingPolicy() {
             content: [
               {
                 sub: "Shipping Enquiries",
-                text: "For any shipping-related questions, please contact us at: Email: shipping@jumbohydro.in | Phone: +91 99999 99999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. For bulk or commercial orders requiring freight shipping, please contact us directly for a custom shipping quote.",
+                text: "For any shipping-related questions, please contact us at: Email: shipping@jumbohydro.in | Phone: +91  9565885999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. For bulk or commercial orders requiring freight shipping, please contact us directly for a custom shipping quote.",
               },
             ],
           },

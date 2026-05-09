@@ -33,10 +33,10 @@ export default function RefundPolicy() {
               lineHeight: 1.8,
             }}
           >
-            At <strong>Jumbohydro India</strong>, we want you to be completely
-            satisfied with your purchase. If you are not satisfied for any
-            reason, we are here to help. Please read our Refund and Cancellation
-            Policy carefully to understand your options.
+            At <strong>JUMBO HYDRO ENGINEERS</strong>, we want you to be
+            completely satisfied with your purchase. If you are not satisfied
+            for any reason, we are here to help. Please read our Refund and
+            Cancellation Policy carefully to understand your options.
           </p>
         </div>
 
@@ -101,14 +101,14 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Cancellation Before Shipment",
-                text: "You may cancel your order within 24 hours of placing it, provided the order has not yet been shipped. To cancel, contact us immediately at orders@jumbohydro.in or call +91 99999 99999 with your Order ID. If the cancellation is approved, a full refund will be processed within 5–7 business days to your original payment method.",
+                text: "You may cancel your order within 24 hours of placing it, provided the order has not yet been shipped. To cancel, contact us immediately at  jumbohydro@gmail.com or call +91 9565885999 with your Order ID. If the cancellation is approved, a full refund will be processed within 5–7 business days to your original payment method.",
               },
               {
                 sub: "Cancellation After Shipment",
                 text: "Once an order has been shipped, it cannot be cancelled. In such cases, you may initiate a return after receiving the product in accordance with our Return Policy below.",
               },
               {
-                sub: "Cancellation by Jumbohydro India",
+                sub: "Cancellation by JUMBO HYDRO ENGINEERS",
                 text: "We reserve the right to cancel any order due to product unavailability, pricing errors, suspected fraudulent activity, or inability to process payment. In such cases, you will be notified immediately and a full refund will be issued within 3–5 business days.",
               },
             ],
@@ -126,7 +126,7 @@ export default function RefundPolicy() {
               },
               {
                 sub: "Return Shipping Costs",
-                text: "For returns due to our error (wrong product, damaged product, defective product), Jumbohydro India will bear the return shipping cost. For returns due to change of mind or buyer error, the return shipping cost is the responsibility of the customer.",
+                text: "For returns due to our error (wrong product, damaged product, defective product), JUMBO HYDRO ENGINEERS will bear the return shipping cost. For returns due to change of mind or buyer error, the return shipping cost is the responsibility of the customer.",
               },
             ],
           },
@@ -165,7 +165,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Reporting Damage",
-                text: "If you receive a damaged or defective product, please contact us within 48 hours of delivery at support@jumbohydro.in with your Order ID and clear photographs of the damage. We will arrange a replacement or full refund at no additional cost to you. Do not use a damaged product — this is especially important for cutting equipment and professional diving gear.",
+                text: "If you receive a damaged or defective product, please contact us within 48 hours of delivery at  jumbohydro@gmail.com with your Order ID and clear photographs of the damage. We will arrange a replacement or full refund at no additional cost to you. Do not use a damaged product — this is especially important for cutting equipment and professional diving gear.",
               },
             ],
           },
@@ -174,7 +174,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "International Return Policy",
-                text: "For international orders (USA, UK, Europe), the return window is 14 days from delivery. International customers are responsible for return shipping costs unless the return is due to our error. Please note that customs duties and taxes paid during import are non-refundable. Currency fluctuations between the time of purchase and refund are not covered by Jumbohydro India.",
+                text: "For international orders (USA, UK, Europe,Russia), the return window is 14 days from delivery. International customers are responsible for return shipping costs unless the return is due to our error. Please note that customs duties and taxes paid during import are non-refundable. Currency fluctuations between the time of purchase and refund are not covered by  jumbohydro@gmail.com.",
               },
             ],
           },
@@ -183,7 +183,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Get Help",
-                text: "For any questions about refunds, cancellations, or returns, contact us at: Email: refunds@jumbohydro.in | Phone: +91 99999 99999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. Please have your Order ID ready when contacting us for faster resolution.",
+                text: "For any questions about refunds, cancellations, or returns, contact us at: Email:  jumbohydro@gmail.com | Phone: +91  9565885999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. Please have your Order ID ready when contacting us for faster resolution.",
               },
             ],
           },
