@@ -165,7 +165,7 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "Questions About These Terms",
-                text: "If you have any questions about these Terms and Conditions, please contact us at: Email: legal@jumbohydro.in | Phone: +91 99999 99999 | Address: JUMBO HYDRO ENGINEERS, Mumbai, Maharashtra, India.",
+                text: "If you have any questions about these Terms and Conditions, please contact us at: Email:  jumbohydro@gmail.com | Phone: +91 9565885999 | Address: Shop No. 6, Shreepad  Accord CHSL, Hatkesh Block  GCC Road, Mira Road  Mira Bhayandar, Thane District  Maharashtra – 401107, India.",
               },
             ],
           },
