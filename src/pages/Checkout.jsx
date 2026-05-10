@@ -6,6 +6,9 @@ import { useCurrency } from "../context/CurrencyContext";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
+// Change this to "cashfree", "payu", or "razorpay" to switch gateway
+const ACTIVE_GATEWAY = "payu";
+
 export default function Checkout() {
   const { cartItems, clearCart } = useCart();
   const { currency, getCurrencySymbol } = useCurrency();
@@ -32,43 +35,127 @@ export default function Checkout() {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  // ---------- gateway handlers ----------
+
+  const handleCashfree = (payData) => {
+    if (window.Cashfree) {
+      window
+        .Cashfree({
+          mode:
+            import.meta.env.VITE_CASHFREE_ENV === "PROD"
+              ? "production"
+              : "sandbox",
+        })
+        .then((cashfree) => {
+          cashfree.checkout({ paymentSessionId: payData.paymentSessionId });
+        });
+    } else {
+      toast.success("Order placed! Complete payment.");
+      navigate(`/order-tracking/${payData.orderId}`);
+    }
+  };
+
+  const handlePayu = (payData) => {
+    // PayU works via form POST redirect — create a hidden form and submit it
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = payData.payuUrl;
+    Object.entries(payData.params).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
+    });
+    document.body.appendChild(form);
+    form.submit();
+  };
+
+  const handleRazorpay = (payData, internalOrderId) => {
+    if (!window.Razorpay) {
+      toast.error("Razorpay SDK not loaded. Check your index.html.");
+      return;
+    }
+    const options = {
+      key: payData.keyId,
+      amount: payData.amount,
+      currency: payData.currency,
+      order_id: payData.razorpayOrderId,
+      name: "Jumbo Hydro Engineers",
+      description: "Order Payment",
+      prefill: {
+        name: payData.customerName,
+        email: payData.customerEmail,
+        contact: payData.customerPhone,
+      },
+      handler: async (response) => {
+        // Razorpay calls this after successful payment — verify on backend
+        try {
+          await API.post(
+            "/api/payment/verify",
+            {
+              orderId: payData.orderId,
+              gateway: "razorpay",
+              razorpayOrderId: response.razorpay_order_id,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpaySignature: response.razorpay_signature,
+            },
+            { headers: { "x-guest-id": guestId } },
+          );
+          clearCart();
+          toast.success("Payment successful!");
+          navigate(`/order-tracking/${payData.orderId}`);
+        } catch {
+          toast.error("Payment verification failed. Contact support.");
+        }
+      },
+      modal: {
+        ondismiss: () => toast.warn("Payment cancelled."),
+      },
+    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+  // ---------- main order handler ----------
+
   const handleOrder = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      // Place order — send guestId in header so backend can identify the guest
+      // Step 1: place the order
       const { data: orderData } = await API.post(
         "/api/orders",
         { shippingAddress: form, currency },
         { headers: { "x-guest-id": guestId } },
       );
 
-      // Create Cashfree payment
+      // Step 2: create payment with the active gateway
       const { data: payData } = await API.post(
         "/api/payment/create",
-        { orderId: orderData.order._id },
+        { orderId: orderData.order._id, gateway: ACTIVE_GATEWAY },
         { headers: { "x-guest-id": guestId } },
       );
 
-      // Load Cashfree SDK and open checkout
-      if (window.Cashfree) {
-        const cashfree = await window.Cashfree({
-          mode:
-            import.meta.env.VITE_CASHFREE_ENV === "PROD"
-              ? "production"
-              : "sandbox",
-        });
-        cashfree.checkout({ paymentSessionId: payData.paymentSessionId });
-      } else {
-        // Fallback: redirect to order tracking
-        toast.success("Order placed! Complete payment.");
-        navigate(`/order-tracking/${orderData.order.orderId}`);
+      // Step 3: hand off to the right gateway handler
+      if (payData.type === "session") {
+        handleCashfree(payData);
+      } else if (payData.type === "redirect") {
+        handlePayu(payData);
+      } else if (payData.type === "popup") {
+        handleRazorpay(payData, orderData.order._id);
       }
     } catch (err) {
       toast.error(err.response?.data?.message || "Order failed");
     } finally {
       setLoading(false);
     }
+  };
+
+  const gatewayLabel = {
+    cashfree: "Cashfree",
+    payu: "PayU",
+    razorpay: "Razorpay",
   };
 
   const fields = [
@@ -169,7 +256,7 @@ export default function Checkout() {
                 >
                   {loading
                     ? "Processing..."
-                    : `Pay ${getCurrencySymbol(currency)}${total.toFixed(2)} via Cashfree`}
+                    : `Pay ${getCurrencySymbol(currency)}${total.toFixed(2)} via ${gatewayLabel[ACTIVE_GATEWAY]}`}
                 </button>
               </form>
             </div>
@@ -238,8 +325,9 @@ export default function Checkout() {
               >
                 <p style={{ fontSize: 13, color: "#0a2342", margin: 0 }}>
                   <i className="bi bi-shield-check me-2"></i>
-                  Secured by <strong>Cashfree Payments</strong>. Your payment
-                  info is encrypted.
+                  Secured by{" "}
+                  <strong>{gatewayLabel[ACTIVE_GATEWAY]} Payments</strong>. Your
+                  payment info is encrypted.
                 </p>
               </div>
             </div>

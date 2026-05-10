@@ -28,6 +28,10 @@ import Checkout from "./pages/Checkout";
 import MyOrders from "./pages/MyOrders";
 import OrderTracking from "./pages/OrderTracking";
 
+// Payment result pages (used by PayU redirect flow)
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailure from "./pages/PaymentFailure";
+
 // Admin pages
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -144,7 +148,7 @@ export default function App() {
                 }
               />
 
-              {/* Cart, Checkout, Orders — now open to all users (no login required) */}
+              {/* Cart, Checkout, Orders — open to all users */}
               <Route
                 path="/cart"
                 element={
@@ -178,7 +182,25 @@ export default function App() {
                 }
               />
 
-              {/* Admin routes — unchanged, still protected */}
+              {/* Payment result pages — PayU redirects here after payment */}
+              <Route
+                path="/payment-success"
+                element={
+                  <PublicLayout>
+                    <PaymentSuccess />
+                  </PublicLayout>
+                }
+              />
+              <Route
+                path="/payment-failure"
+                element={
+                  <PublicLayout>
+                    <PaymentFailure />
+                  </PublicLayout>
+                }
+              />
+
+              {/* Admin routes — still protected */}
               <Route
                 path="/admin"
                 element={
