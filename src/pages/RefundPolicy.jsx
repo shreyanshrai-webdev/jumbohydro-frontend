@@ -101,7 +101,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Cancellation Before Shipment",
-                text: "You may cancel your order within 24 hours of placing it, provided the order has not yet been shipped. To cancel, contact us immediately at  jumbohydro@gmail.com or call +91 9565885999 with your Order ID. If the cancellation is approved, a full refund will be processed within 5–7 business days to your original payment method.",
+                text: "You may cancel your order within 24 hours of placing it, provided the order has not yet been shipped. To cancel, contact us immediately at jumbohydro@gmail.com or call +91 9565885999 with your Order ID. If the cancellation is approved, a full refund will be processed within 5–7 business days to your original payment method.",
               },
               {
                 sub: "Cancellation After Shipment",
@@ -122,7 +122,7 @@ export default function RefundPolicy() {
               },
               {
                 sub: "How to Initiate a Return",
-                text: 'To initiate a return: 1) Log in to your account and go to My Orders. 2) Select the order and click "Return Request". 3) Select the reason for return and submit. 4) Our team will review and approve within 48 hours. 5) You will receive return shipping instructions via email. 6) Ship the product back using the provided instructions. 7) Refund is processed after we receive and inspect the product.',
+                text: "To initiate a return, email us at jumbohydro@gmail.com with your Order ID and reason for return. Our team will review your request and respond within 48 hours with return instructions. Once approved, ship the product back using the instructions provided. Your refund will be processed after we receive and inspect the returned product.",
               },
               {
                 sub: "Return Shipping Costs",
@@ -165,7 +165,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Reporting Damage",
-                text: "If you receive a damaged or defective product, please contact us within 48 hours of delivery at  jumbohydro@gmail.com with your Order ID and clear photographs of the damage. We will arrange a replacement or full refund at no additional cost to you. Do not use a damaged product — this is especially important for cutting equipment and professional diving gear.",
+                text: "If you receive a damaged or defective product, please contact us within 48 hours of delivery at jumbohydro@gmail.com with your Order ID and clear photographs of the damage. We will arrange a replacement or full refund at no additional cost to you. Do not use a damaged product — this is especially important for cutting equipment and professional diving gear.",
               },
             ],
           },
@@ -174,7 +174,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "International Return Policy",
-                text: "For international orders (USA, UK, Europe,Russia), the return window is 14 days from delivery. International customers are responsible for return shipping costs unless the return is due to our error. Please note that customs duties and taxes paid during import are non-refundable. Currency fluctuations between the time of purchase and refund are not covered by  jumbohydro@gmail.com.",
+                text: "For international orders (USA, UK, Europe, Russia), the return window is 14 days from delivery. International customers are responsible for return shipping costs unless the return is due to our error. Please note that customs duties and taxes paid during import are non-refundable. Currency fluctuations between the time of purchase and refund are not covered by JUMBO HYDRO ENGINEERS.",
               },
             ],
           },
@@ -183,7 +183,7 @@ export default function RefundPolicy() {
             content: [
               {
                 sub: "Get Help",
-                text: "For any questions about refunds, cancellations, or returns, contact us at: Email:  jumbohydro@gmail.com | Phone: +91  9565885999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. Please have your Order ID ready when contacting us for faster resolution.",
+                text: "For any questions about refunds, cancellations, or returns, contact us at: Email: jumbohydro@gmail.com | Phone: +91 9565885999 | Working Hours: Monday to Saturday, 9 AM to 6 PM IST. Please have your Order ID ready when contacting us for faster resolution.",
               },
             ],
           },

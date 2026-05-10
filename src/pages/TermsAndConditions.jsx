@@ -34,10 +34,10 @@ export default function TermsAndConditions() {
             }}
           >
             Please read these Terms and Conditions carefully before using the
-            jumbo hydro engineers website. By accessing or using our website,
-            placing an order, or creating an account, you agree to be bound by
-            these terms. If you disagree with any part of these terms, please do
-            not use our website.
+            Jumbo Hydro Engineers website. By accessing or using our website or
+            placing an order, you agree to be bound by these terms. If you
+            disagree with any part of these terms, please do not use our
+            website.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function TermsAndConditions() {
               },
               {
                 sub: "Payment Processing",
-                text: "All payments are processed securely through Cashfree Payments, a PCI-DSS compliant payment gateway. We accept payments via credit card, debit card, net banking, UPI, and other methods supported by Cashfree. By placing an order, you authorize us to charge your selected payment method.",
+                text: "All payments are processed securely through our payment gateway partners (PayU / Cashfree), PCI-DSS compliant payment gateways. We accept payments via credit card, debit card, net banking, UPI, and other supported methods. By placing an order, you authorize us to charge your selected payment method.",
               },
               {
                 sub: "International Payments",
@@ -165,7 +165,7 @@ export default function TermsAndConditions() {
             content: [
               {
                 sub: "Questions About These Terms",
-                text: "If you have any questions about these Terms and Conditions, please contact us at: Email:  jumbohydro@gmail.com | Phone: +91 9565885999 | Address: Shop No. 6, Shreepad  Accord CHSL, Hatkesh Block  GCC Road, Mira Road  Mira Bhayandar, Thane District  Maharashtra – 401107, India.",
+                text: "If you have any questions about these Terms and Conditions, please contact us at: Email: jumbohydro@gmail.com | Phone: +91 9565885999 | Address: Shop No. 6, Shreepad Accord CHSL, Hatkesh Block GCC Road, Mira Road Mira Bhayandar, Thane District Maharashtra – 401107, India.",
               },
             ],
           },

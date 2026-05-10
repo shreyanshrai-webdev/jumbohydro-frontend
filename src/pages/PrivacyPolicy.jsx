@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "Personal Information You Provide",
-                text: "When you register an account, place an order, or contact us, we collect: Full name, Email address, Phone number, Shipping and billing address, Payment information (processed securely via Cashfree — we do not store card details), and Preferred currency.",
+                text: "When you place an order or contact us, we collect: Full name, Email address, Phone number, Shipping and billing address, Payment information (processed securely via our payment gateway partners — we do not store card details), and Preferred currency.",
               },
               {
                 sub: "Information Automatically Collected",
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
               },
               {
                 sub: "To Communicate With You",
-                text: "We may use your email to send order updates, respond to your inquiries, send important account notifications, and (with your consent) send promotional offers and newsletters. You can opt out of marketing emails at any time.",
+                text: "We may use your email to send order updates, respond to your inquiries, send important order notifications, and (with your consent) send promotional offers and newsletters. You can opt out of marketing emails at any time.",
               },
               {
                 sub: "To Improve Our Services",
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
               },
               {
                 sub: "Service Providers",
-                text: "We share your information only with trusted third-party service providers who assist us in operating our website: Cashfree Payments (payment processing), Shipping carriers (for order delivery), MongoDB Atlas (secure database storage), and Railway & Vercel (secure cloud hosting). All service providers are bound by confidentiality agreements.",
+                text: "We share your information only with trusted third-party service providers who assist us in operating our website: PayU / Cashfree Payments (payment processing), Shipping carriers (for order delivery), MongoDB Atlas (secure database storage), and Railway & Vercel (secure cloud hosting). All service providers are bound by confidentiality agreements.",
               },
               {
                 sub: "Legal Requirements",
@@ -94,11 +94,11 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "How We Protect Your Data",
-                text: "We implement industry-standard security measures including: SSL/TLS encryption for all data transmission, Bcrypt password hashing — your password is never stored in plain text, JWT token-based authentication, Secure cloud infrastructure with access controls, and Regular security audits and updates.",
+                text: "We implement industry-standard security measures including: SSL/TLS encryption for all data transmission, Secure cloud infrastructure with access controls, and Regular security audits and updates.",
               },
               {
                 sub: "Payment Security",
-                text: "All payment processing is handled by Cashfree Payments, a PCI-DSS compliant payment gateway. We never store your credit card, debit card, or net banking details on our servers.",
+                text: "All payment processing is handled by PCI-DSS compliant payment gateway partners (PayU / Cashfree). We never store your credit card, debit card, or net banking details on our servers.",
               },
             ],
           },
@@ -107,11 +107,11 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "What Are Cookies",
-                text: "Cookies are small text files stored on your device when you visit our website. We use cookies to maintain your login session, remember your preferred currency (INR/USD/EUR/GBP/RUB), keep items in your cart, and analyze website traffic.",
+                text: "Cookies are small text files stored on your device when you visit our website. We use cookies to remember your preferred currency (INR/USD/EUR/GBP/RUB), keep items in your cart, and analyze website traffic.",
               },
               {
                 sub: "Managing Cookies",
-                text: "You can control cookies through your browser settings. Disabling cookies may affect some website functionality such as staying logged in or retaining cart items.",
+                text: "You can control cookies through your browser settings. Disabling cookies may affect some website functionality such as retaining cart items.",
               },
             ],
           },
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "Access and Control",
-                text: "You have the right to: Access the personal information we hold about you, Correct inaccurate or incomplete information, Request deletion of your account and personal data, Opt out of marketing communications, and Export your data in a portable format. To exercise any of these rights, contact us at  jumbohydro@gmail.com.",
+                text: "You have the right to: Access the personal information we hold about you, Correct inaccurate or incomplete information, Request deletion of your personal data, Opt out of marketing communications, and Export your data in a portable format. To exercise any of these rights, contact us at jumbohydro@gmail.com.",
               },
             ],
           },
@@ -156,7 +156,7 @@ export default function PrivacyPolicy() {
             content: [
               {
                 sub: "Privacy Concerns",
-                text: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Email:  jumbohydro@gmail.com | Phone: +91  9565885999 | Address: Shop No. 6, Shreepad Accord CHSL, Hatkesh Block GCC Road, Mira Road Mira Bhayandar, Thane District , Maharashtra – 401107, Mumbai, Maharashtra, India.",
+                text: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Email: jumbohydro@gmail.com | Phone: +91 9565885999 | Address: Shop No. 6, Shreepad Accord CHSL, Hatkesh Block GCC Road, Mira Road Mira Bhayandar, Thane District, Maharashtra – 401107, Mumbai, Maharashtra, India.",
               },
             ],
           },
