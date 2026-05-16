@@ -2,14 +2,60 @@ import { useState, useEffect } from "react";
 import API from "../../utils/axios";
 import { toast } from "react-toastify";
 
+// ---------------------------------------------------------------------------
+// Exchange rates relative to INR (used for auto-conversion).
+// Update these whenever you want to change the default conversion rates.
+// ---------------------------------------------------------------------------
+const RATES_FROM_INR = {
+  INR: 1,
+  USD: 0.01042, // 1 INR = $0.01042  (was 0.012)
+  EUR: 0.00896, // 1 INR = €0.00896  (was 0.011)
+  GBP: 0.0078, // 1 INR = £0.0078   (was 0.0095)
+  RUB: 0.7868, // 1 INR = ₽0.7868   (was 1.06 — significantly wrong)
+};
+
+const CURRENCIES = [
+  { code: "INR", sym: "₹" },
+  { code: "USD", sym: "$" },
+  { code: "EUR", sym: "€" },
+  { code: "GBP", sym: "£" },
+  { code: "RUB", sym: "₽" },
+];
+
 const EMPTY = {
   name: "",
   description: "",
   category: "Weight Belts",
   image: "",
   stock: 100,
-  price: { INR: "", USD: "", EUR: "", GBP: "" },
+  price: { INR: "", USD: "", EUR: "", GBP: "", RUB: "" },
 };
+
+// ---------------------------------------------------------------------------
+// When one currency is changed, auto-fill all others via INR as pivot.
+// ---------------------------------------------------------------------------
+function recalcPrices(changedCode, changedValue) {
+  const num = parseFloat(changedValue);
+  if (!changedValue || isNaN(num)) {
+    // If the field is cleared, clear all
+    const blank = {};
+    CURRENCIES.forEach(({ code }) => (blank[code] = ""));
+    blank[changedCode] = changedValue;
+    return blank;
+  }
+
+  // Convert changedValue → INR first, then fan out
+  const inrValue = num / RATES_FROM_INR[changedCode];
+  const result = {};
+  CURRENCIES.forEach(({ code }) => {
+    if (code === changedCode) {
+      result[code] = changedValue; // keep raw input for the field being edited
+    } else {
+      result[code] = parseFloat((inrValue * RATES_FROM_INR[code]).toFixed(2));
+    }
+  });
+  return result;
+}
 
 export default function ManageProducts() {
   const [products, setProducts] = useState([]);
@@ -55,7 +101,16 @@ export default function ManageProducts() {
   };
 
   const handleEdit = (p) => {
-    setForm({ ...p, price: { ...p.price } });
+    setForm({
+      ...p,
+      price: {
+        INR: p.price?.INR ?? "",
+        USD: p.price?.USD ?? "",
+        EUR: p.price?.EUR ?? "",
+        GBP: p.price?.GBP ?? "",
+        RUB: p.price?.RUB ?? "",
+      },
+    });
     setEditing(p._id);
     setShowForm(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -66,6 +121,12 @@ export default function ManageProducts() {
     await API.delete(`/api/products/${id}`);
     toast.success("Product deleted");
     fetchProducts();
+  };
+
+  // Called whenever any price input changes
+  const handlePriceChange = (code, value) => {
+    const newPrices = recalcPrices(code, value);
+    setForm((prev) => ({ ...prev, price: newPrices }));
   };
 
   if (loading)
@@ -81,7 +142,7 @@ export default function ManageProducts() {
       className="py-3 py-md-4"
     >
       <div className="container-fluid px-3 px-md-4">
-        {/* Header */}
+        {/* ── Header ── */}
         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
           <h2
             style={{
@@ -130,7 +191,7 @@ export default function ManageProducts() {
           </div>
         </div>
 
-        {/* Form — fully responsive */}
+        {/* ── Form ── */}
         {showForm && (
           <div
             className="p-3 p-md-4 mb-4"
@@ -266,30 +327,32 @@ export default function ManageProducts() {
                   />
                 </div>
 
-                {/* Prices — 2 columns on mobile, 4 on desktop */}
+                {/* ── Prices — now 5 currencies with auto-conversion ── */}
                 <div className="col-12">
-                  <label
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 700,
-                      marginBottom: 10,
-                      display: "block",
-                    }}
-                  >
-                    Prices (all 4 currencies)
-                  </label>
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <label style={{ fontSize: 13, fontWeight: 700, margin: 0 }}>
+                      Prices (all 5 currencies)
+                    </label>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        color: "#6c757d",
+                        background: "#f0f4f8",
+                        borderRadius: 20,
+                        padding: "2px 10px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      ✦ Edit any field — others auto-update
+                    </span>
+                  </div>
                   <div className="row g-2">
-                    {[
-                      ["INR", "₹"],
-                      ["USD", "$"],
-                      ["EUR", "€"],
-                      ["GBP", "£"],
-                    ].map(([code, sym]) => (
-                      <div key={code} className="col-6 col-md-3">
+                    {CURRENCIES.map(({ code, sym }) => (
+                      <div key={code} className="col-6 col-md">
                         <div className="input-group">
                           <span
                             className="input-group-text"
-                            style={{ fontSize: 13 }}
+                            style={{ fontSize: 13, minWidth: 62 }}
                           >
                             {sym} {code}
                           </span>
@@ -297,15 +360,10 @@ export default function ManageProducts() {
                             type="number"
                             className="form-control"
                             step="0.01"
+                            min="0"
                             value={form.price[code]}
                             onChange={(e) =>
-                              setForm({
-                                ...form,
-                                price: {
-                                  ...form.price,
-                                  [code]: Number(e.target.value),
-                                },
-                              })
+                              handlePriceChange(code, e.target.value)
                             }
                             required
                             style={{ borderRadius: "0 10px 10px 0" }}
@@ -412,6 +470,9 @@ export default function ManageProducts() {
                     <span style={{ fontSize: 12, color: "#444" }}>
                       £{p.price?.GBP}
                     </span>
+                    <span style={{ fontSize: 12, color: "#444" }}>
+                      ₽{p.price?.RUB ?? "—"}
+                    </span>
                   </div>
                   <div style={{ fontSize: 12, marginTop: 4 }}>
                     Stock:{" "}
@@ -478,6 +539,7 @@ export default function ManageProducts() {
                     "$ USD",
                     "€ EUR",
                     "£ GBP",
+                    "₽ RUB",
                     "Stock",
                     "Actions",
                   ].map((h) => (
@@ -487,6 +549,7 @@ export default function ManageProducts() {
                         fontWeight: 700,
                         color: "#0a2342",
                         padding: "16px",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {h}
@@ -528,6 +591,10 @@ export default function ManageProducts() {
                     <td>${p.price?.USD}</td>
                     <td>€{p.price?.EUR}</td>
                     <td>£{p.price?.GBP}</td>
+                    <td>
+                      ₽
+                      {p.price?.RUB ?? <span style={{ color: "#aaa" }}>—</span>}
+                    </td>
                     <td>
                       <span
                         style={{
